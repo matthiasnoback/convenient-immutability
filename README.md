@@ -1,5 +1,7 @@
 # Convenient immutability for (some) PHP objects
 
+[![Build Status](https://travis-ci.org/matthiasnoback/convenient-immutability.svg)](https://travis-ci.org/matthiasnoback/convenient-immutability) [![Coverage Status](https://coveralls.io/repos/matthiasnoback/convenient-immutability/badge.svg?branch=master&service=github)](https://coveralls.io/github/matthiasnoback/convenient-immutability?branch=master)
+
 ## Installation
 
 Just run:
