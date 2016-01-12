@@ -7,7 +7,13 @@ php:
   - 5.6
   - 7.0
 
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 before_script:
+  - composer config github-oauth.github.com ${GH_TOKEN}
   - composer selfupdate
   - composer install --prefer-dist
 
