@@ -90,4 +90,22 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertSame([], $foo->bazzes);
     }
+
+    /**
+     * @test
+     * @dataProvider objectProvider
+     */
+    public function is_should_have_the_same_values_adter_deserealization(Foo $foo)
+    {
+        $foo->bar = 'bar';
+        $foo->baz = 1;
+        $foo->bazzes = [1, 2, 3, 4];
+
+        /** @var Foo $deSerialized */
+        $deSerialized = unserialize(serialize($foo));
+
+        $this->assertSame($foo->bar, $deSerialized->bar);
+        $this->assertSame($foo->baz, $deSerialized->baz);
+        $this->assertSame($foo->bazzes, $deSerialized->bazzes);
+    }
 }

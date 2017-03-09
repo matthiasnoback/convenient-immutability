@@ -26,7 +26,7 @@ class FormIntegrationTest extends TypeTestCase
         $expected = new OrderSeats();
         $expected->id = $id;
         $expected->userId = 1;
-        $expected->seatNumbers = [1, 2];
+        $expected->seatNumbers = ['1', '2'];
         $this->assertEquals($expected, $command);
     }
 }
