@@ -16,10 +16,18 @@ class SerializationTest extends \PHPUnit_Framework_TestCase
         $foo->bar = 1;
         $foo->baz = 2;
 
+        $fooClone = clone $foo;
+
         $serializedValue = serialize($foo);
         $deSerializedValue = unserialize($serializedValue);
 
         $this->assertSame($deSerializedValue->bar, $foo->bar);
         $this->assertSame($deSerializedValue->baz, $foo->baz);
+
+        $this->assertSame($fooClone->bar, $foo->bar);
+        $this->assertSame($fooClone->baz, $foo->baz);
+
+        $this->assertSame($fooClone->bar, $foo->bar);
+        $this->assertSame($fooClone->baz, $foo->baz);
     }
 }
