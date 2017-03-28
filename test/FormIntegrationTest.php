@@ -18,7 +18,7 @@ class FormIntegrationTest extends TypeTestCase
         $form = $this->factory->create(new OrderSeatsFormType());
         $form->submit([
             'userId' => 1,
-            'seatNumbers' => [1, 2]
+            'seatNumbers' => ['1', '2']
         ]);
         $command = $form->getData();
         $command->id = $id;
@@ -26,7 +26,7 @@ class FormIntegrationTest extends TypeTestCase
         $expected = new OrderSeats();
         $expected->id = $id;
         $expected->userId = 1;
-        $expected->seatNumbers = [1, 2];
+        $expected->seatNumbers = ['1', '2'];
         $this->assertEquals($expected, $command);
     }
 }
