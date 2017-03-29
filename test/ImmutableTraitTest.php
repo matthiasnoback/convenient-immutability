@@ -4,6 +4,7 @@
 namespace ConvenientImmutability\Test;
 
 use ConvenientImmutability\Test\Resources\Foo;
+use ConvenientImmutability\Test\Resources\SubclassedFoo;
 
 class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
 {
@@ -13,10 +14,15 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
     public function objectProvider()
     {
         $foo = new Foo();
+
         $unserializedFoo = unserialize(serialize($foo));
+
+        $fooWithCustomConstructor = new SubclassedFoo();
+
         return [
             [$foo],
-            [$unserializedFoo]
+            [$unserializedFoo],
+            [$fooWithCustomConstructor]
         ];
     }
 

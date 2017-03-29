@@ -14,7 +14,7 @@ trait Immutable
         '_userDefinedProperties' => true,
     ];
 
-    final public function __construct()
+    public function __construct()
     {
         // take over all user-defined non-static properties
         foreach ((new \ReflectionObject($this))->getProperties() as $property) {
