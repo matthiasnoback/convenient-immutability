@@ -18,7 +18,7 @@ class FormIntegrationTest extends TypeTestCase
         $form = $this->factory->create(new OrderSeatsFormType());
         $form->submit([
             'userId' => 1,
-            'seatNumbers' => [1, 2]
+            'seatNumbers' => ['1', '2']
         ]);
         $command = $form->getData();
         $command->id = $id;
