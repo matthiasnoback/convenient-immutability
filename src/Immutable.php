@@ -55,4 +55,11 @@ trait Immutable
 
         return $this->_defaultValues[$name];
     }
+
+    final public function __wakeup()
+    {
+        foreach ($this->_userDefinedProperties as $property => $defined) {
+            unset($this->{$property});
+        }
+    }
 }
