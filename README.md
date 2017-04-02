@@ -2,7 +2,11 @@
 
 **Warning: I didn't use this library "in the wild" - please let me know if it works in your situation**
 
-[![Build Status](https://travis-ci.org/matthiasnoback/convenient-immutability.svg)](https://travis-ci.org/matthiasnoback/convenient-immutability) [![Coverage Status](https://coveralls.io/repos/matthiasnoback/convenient-immutability/badge.svg?branch=master&service=github)](https://coveralls.io/github/matthiasnoback/convenient-immutability?branch=master)
+[![Build Status][ico-travis]][link-travis]
+[![Coverage Status][ico-coveralls]][link-coveralls]
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Total Downloads][ico-downloads]][link-downloads]
+[![Software License][ico-license]](LICENSE.md)
 
 ## Installation
 
@@ -62,3 +66,20 @@ The `ConvenientImmutability\Immutable` trait solves this problem. When your clas
 Is this bad? I don't think so. As long as you validate the objects (e.g. using the Symfony Validator) and then throw them into your domain layer, which contains the actual safeguards against inconsistent state.
 
 (You can also just use public properties and treat them as "set once, never again" in other parts of your application.)
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[ico-version]: https://img.shields.io/packagist/v/matthiasnoback/convenient-immutability.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-coveralls]: https://img.shields.io/coveralls/matthiasnoback/convenient-immutability.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/matthiasnoback/convenient-immutability.svg?style=flat-square 
+[ico-downloads]: https://img.shields.io/packagist/dt/matthiasnoback/convenient-immutability.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/matthiasnoback/convenient-immutability
+[link-coveralls]: https://coveralls.io/github/matthiasnoback/convenient-immutability
+[link-travis]: https://travis-ci.org/matthiasnoback/convenient-immutability
+[link-downloads]: https://packagist.org/packages/matthiasnoback/convenient-immutability
+[link-author]: https://github.com/matthiasnoback
+[link-contributors]: ../../contributors
