@@ -95,7 +95,7 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function is_should_have_the_same_values_adter_deserealization(Foo $foo)
+    public function is_should_have_the_same_values_after_deserealization(Foo $foo)
     {
         $foo->bar = 'bar';
         $foo->baz = 1;
