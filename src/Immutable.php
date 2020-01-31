@@ -25,7 +25,9 @@ trait Immutable
             }
 
             $this->_userDefinedProperties[$propertyName] = true;
-            $this->_defaultValues[$propertyName] = $property->getValue($this);
+            if ($property->isInitialized($this)) {
+                $this->_defaultValues[$propertyName] = $property->getValue($this);
+            }
             unset($this->{$propertyName});
         }
     }
