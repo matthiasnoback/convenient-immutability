@@ -25,7 +25,7 @@ trait Immutable
             }
 
             $this->_userDefinedProperties[$propertyName] = true;
-            if ($property->isInitialized($this)) {
+            if (\PHP_VERSION_ID < 70400 || $property->isInitialized($this)) {
                 $this->_defaultValues[$propertyName] = $property->getValue($this);
             }
             unset($this->{$propertyName});
