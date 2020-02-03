@@ -2,6 +2,10 @@
 
 namespace ConvenientImmutability;
 
+use LogicException;
+use ReflectionObject;
+use const PHP_VERSION_ID;
+
 trait Immutable
 {
     private $_defaultValues = [];
@@ -17,7 +21,7 @@ trait Immutable
     public function __construct()
     {
         // take over all user-defined non-static properties
-        foreach ((new \ReflectionObject($this))->getProperties() as $property) {
+        foreach ((new ReflectionObject($this))->getProperties() as $property) {
             $propertyName = $property->getName();
 
             if (isset(self::$_doNotTakeOverProperties[$propertyName]) || $property->isStatic()) {
@@ -25,7 +29,7 @@ trait Immutable
             }
 
             $this->_userDefinedProperties[$propertyName] = true;
-            if (\PHP_VERSION_ID < 70400 || $property->isInitialized($this)) {
+            if (PHP_VERSION_ID < 70400 || $property->isInitialized($this)) {
                 $this->_defaultValues[$propertyName] = $property->getValue($this);
             }
             unset($this->{$propertyName});
@@ -35,11 +39,11 @@ trait Immutable
     final public function __set($name, $value)
     {
         if (!isset($this->_userDefinedProperties[$name])) {
-            throw new \LogicException('Unknown property "' . $name . '"');
+            throw new LogicException('Unknown property "' . $name . '"');
         }
 
         if (array_key_exists($name, $this->_userDefinedValues)) {
-            throw new \LogicException('You can not overwrite the value for property "' . $name . '"');
+            throw new LogicException('You can not overwrite the value for property "' . $name . '"');
         }
 
         $this->_userDefinedValues[$name] = $value;
@@ -48,7 +52,7 @@ trait Immutable
     final public function __get($name)
     {
         if (!isset($this->_userDefinedProperties[$name])) {
-            throw new \LogicException('Unknown property "' . $name . '"');
+            throw new LogicException('Unknown property "' . $name . '"');
         }
 
         if (array_key_exists($name, $this->_userDefinedValues)) {

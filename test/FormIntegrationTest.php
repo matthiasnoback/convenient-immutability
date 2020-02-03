@@ -7,12 +7,12 @@ use ConvenientImmutability\Test\Resources\OrderSeatsFormType;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-class FormIntegrationTest extends TypeTestCase
+final class FormIntegrationTest extends TypeTestCase
 {
     /**
      * @test
      */
-    public function it_works_with_a_standard_use_case_for_command_objects()
+    public function it_works_with_a_standard_use_case_for_command_objects(): void
     {
         $id = Uuid::uuid4();
         $form = $this->factory->create(OrderSeatsFormType::class);

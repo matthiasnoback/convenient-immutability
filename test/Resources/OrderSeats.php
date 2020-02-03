@@ -4,7 +4,7 @@ namespace ConvenientImmutability\Test\Resources;
 
 use ConvenientImmutability\Immutable;
 
-class OrderSeats
+final class OrderSeats
 {
     use Immutable;
 

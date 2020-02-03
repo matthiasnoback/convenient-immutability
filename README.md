@@ -37,7 +37,7 @@ class OrderSeats
 And use it like this:
 
 ```php
-$form = $this->factory->create(new OrderSeatsFormType());
+$form = $this->factory->create(OrderSeatsFormType::class);
 $form->submit($request);
 $command = $form->getData();
 $command->id = Uuid::uuid4();
@@ -74,7 +74,7 @@ The MIT License (MIT). Please see [License File](LICENSE.md) for more informatio
 [ico-version]: https://img.shields.io/packagist/v/matthiasnoback/convenient-immutability.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
 [ico-coveralls]: https://img.shields.io/coveralls/matthiasnoback/convenient-immutability.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/matthiasnoback/convenient-immutability.svg?style=flat-square 
+[ico-travis]: https://img.shields.io/travis/matthiasnoback/convenient-immutability.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/matthiasnoback/convenient-immutability.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/matthiasnoback/convenient-immutability

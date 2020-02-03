@@ -8,12 +8,12 @@ use ConvenientImmutability\Test\Resources\SubclassedFoo;
 use LogicException;
 use PHPUnit\Framework\TestCase;
 
-class ImmutableTraitTest extends TestCase
+final class ImmutableTraitTest extends TestCase
 {
     /**
      * @return array
      */
-    public function objectProvider()
+    public function objectProvider(): array
     {
         $foo = new Foo();
 
@@ -32,7 +32,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_allows_one_assignment_per_property(Foo $foo)
+    public function it_allows_one_assignment_per_property(Foo $foo): void
     {
         $foo->bar = 1;
         $foo->baz = 2;
@@ -45,7 +45,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_fails_when_a_property_gets_reassigned(Foo $foo)
+    public function it_fails_when_a_property_gets_reassigned(Foo $foo): void
     {
         $foo->bar = 1;
 
@@ -59,7 +59,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_fails_to_assign_values_to_undefined_properties(Foo $foo)
+    public function it_fails_to_assign_values_to_undefined_properties(Foo $foo): void
     {
         $this->expectException(LogicException::class);
         $foo->bang = 1;
@@ -69,7 +69,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_fails_to_retrieve_values_from_undefined_properties(Foo $foo)
+    public function it_fails_to_retrieve_values_from_undefined_properties(Foo $foo): void
     {
         $this->expectException(LogicException::class);
         $foo->bang;
@@ -79,7 +79,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_returns_null_for_properties_that_have_no_assigned_value(Foo $foo)
+    public function it_returns_null_for_properties_that_have_no_assigned_value(Foo $foo): void
     {
         $this->assertSame(null, $foo->bar);
     }
@@ -88,7 +88,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_returns_the_default_attribute_value_of_properties_that_have_no_assigned_value(Foo $foo)
+    public function it_returns_the_default_attribute_value_of_properties_that_have_no_assigned_value(Foo $foo): void
     {
         $this->assertSame([], $foo->bazzes);
     }
@@ -97,7 +97,7 @@ class ImmutableTraitTest extends TestCase
      * @test
      * @dataProvider objectProvider
      */
-    public function it_should_have_the_same_values_after_deserialization(Foo $foo)
+    public function it_should_have_the_same_values_after_deserialization(Foo $foo): void
     {
         $foo->bar = 'bar';
         $foo->baz = 1;
