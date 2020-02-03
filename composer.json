@@ -9,7 +9,7 @@
     }
   ],
   "require": {
-    "php": ">=5.4"
+    "php": ">=7.2"
   },
   "require-dev": {
     "symfony/form": "~2.0",
