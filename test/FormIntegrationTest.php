@@ -15,7 +15,7 @@ class FormIntegrationTest extends TypeTestCase
     public function it_works_with_a_standard_use_case_for_command_objects()
     {
         $id = Uuid::uuid4();
-        $form = $this->factory->create(new OrderSeatsFormType());
+        $form = $this->factory->create(OrderSeatsFormType::class);
         $form->submit([
             'userId' => 1,
             'seatNumbers' => ['1', '2']

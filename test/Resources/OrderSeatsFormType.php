@@ -3,6 +3,7 @@
 namespace ConvenientImmutability\Test\Resources;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -11,10 +12,10 @@ class OrderSeatsFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('userId', 'choice', [
-                'choices' => [1 => 'Matthias', 2 => 'Lucas']
+            ->add('userId', ChoiceType::class, [
+                'choices' => ['Matthias' => 1, 'Lucas' => 2]
             ])
-            ->add('seatNumbers', 'choice', [
+            ->add('seatNumbers', ChoiceType::class, [
                 'multiple' => true,
                 'choices' => range(1, 10)
             ]);

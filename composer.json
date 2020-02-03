@@ -12,10 +12,10 @@
     "php": ">=7.2"
   },
   "require-dev": {
-    "symfony/form": "~2.0",
-    "phpunit/phpunit": "~4.0",
-    "ramsey/uuid": "^3.1",
-    "satooshi/php-coveralls": "^1.0"
+    "ramsey/uuid": "^3.9",
+    "satooshi/php-coveralls": "^2.2",
+    "phpunit/phpunit": "^8.5",
+    "symfony/form": "^4.2"
   },
   "autoload": {
     "psr-4": {

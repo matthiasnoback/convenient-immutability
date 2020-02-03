@@ -5,8 +5,10 @@ namespace ConvenientImmutability\Test;
 
 use ConvenientImmutability\Test\Resources\Foo;
 use ConvenientImmutability\Test\Resources\SubclassedFoo;
+use LogicException;
+use PHPUnit\Framework\TestCase;
 
-class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
+class ImmutableTraitTest extends TestCase
 {
     /**
      * @return array
@@ -49,7 +51,7 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(1, $foo->bar);
 
-        $this->setExpectedException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $foo->bar = 2;
     }
 
@@ -59,7 +61,7 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function it_fails_to_assign_values_to_undefined_properties(Foo $foo)
     {
-        $this->setExpectedException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $foo->bang = 1;
     }
 
@@ -69,7 +71,7 @@ class ImmutableTraitTest extends \PHPUnit_Framework_TestCase
      */
     public function it_fails_to_retrieve_values_from_undefined_properties(Foo $foo)
     {
-        $this->setExpectedException(\LogicException::class);
+        $this->expectException(LogicException::class);
         $foo->bang;
     }
 
